@@ -156,30 +156,28 @@ export default function Scenario() {
         >
           <div className="type-label text-[var(--text-tertiary)] mb-6">SEGMENT REDUCTION</div>
 
-          <div className="flex items-end gap-8 md:gap-16 justify-center h-48">
+          <div className="flex items-end gap-6 md:gap-16 justify-center h-40 md:h-48">
             {/* Before bar */}
             <div className="flex flex-col items-center">
-              <span className="font-mono font-bold text-2xl text-[var(--danger)] mb-2">52</span>
+              <span className="font-mono font-bold text-xl md:text-2xl text-[var(--danger)] mb-2">52</span>
               <div
-                className="w-16 md:w-24 bg-[var(--danger)]"
-                style={{ height: '140px' }}
+                className="w-12 md:w-24 bg-[var(--danger)] h-24 md:h-36"
               />
-              <span className="font-mono text-xs text-[var(--text-tertiary)] mt-2 uppercase tracking-widest">Before</span>
+              <span className="font-mono text-[10px] md:text-xs text-[var(--text-tertiary)] mt-2 uppercase tracking-widest">Before</span>
             </div>
 
             {/* Arrow */}
-            <div className="flex flex-col items-center justify-center pb-8">
-              <span className="font-mono text-2xl text-[var(--accent)]">→</span>
+            <div className="flex flex-col items-center justify-center pb-6 md:pb-8">
+              <span className="font-mono text-xl md:text-2xl text-[var(--accent)]">→</span>
             </div>
 
             {/* After bar */}
-            <div className="flex flex-col items-center">
-              <span className="font-mono font-bold text-2xl text-[var(--accent)] mb-2">3</span>
+            <div className="flex flex-col items-center justify-end">
+              <span className="font-mono font-bold text-xl md:text-2xl text-[var(--accent)] mb-2">3</span>
               <div
-                className="w-16 md:w-24 bg-[var(--accent)]"
-                style={{ height: '8px', marginTop: '132px' }}
+                className="w-12 md:w-24 bg-[var(--accent)] h-2"
               />
-              <span className="font-mono text-xs text-[var(--text-tertiary)] mt-2 uppercase tracking-widest">After</span>
+              <span className="font-mono text-[10px] md:text-xs text-[var(--text-tertiary)] mt-2 uppercase tracking-widest">After</span>
             </div>
           </div>
 

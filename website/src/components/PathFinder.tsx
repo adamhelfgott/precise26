@@ -21,7 +21,7 @@ export default function PathFinder() {
           transition={{ duration: 0.6 }}
         >
           <span className="type-label-accent mb-4 block">CHOOSE YOUR FIGHT</span>
-          <h2 className="type-display-md mb-12 font-mono">
+          <h2 className="type-display-sm md:type-display-md mb-8 md:mb-12">
             Where are you in the battle?
           </h2>
 
