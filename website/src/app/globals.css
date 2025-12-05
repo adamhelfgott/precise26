@@ -90,7 +90,7 @@ body {
 .type-display-lg {
   font-size: clamp(3rem, 12vw, 10rem);
   font-weight: 200;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 0.9;
 }
