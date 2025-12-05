@@ -99,11 +99,11 @@ export default function Scenario() {
             </div>
 
             {/* Segment table */}
-            <div className="space-y-0">
+            <div className="space-y-0 overflow-x-auto">
               {/* Header row */}
-              <div className="grid grid-cols-[1fr_60px_60px_60px] gap-2 pb-3 border-b border-[var(--border)]">
+              <div className="grid grid-cols-[1fr_50px_50px] md:grid-cols-[1fr_60px_60px_60px] gap-2 pb-3 border-b border-[var(--border)] min-w-[280px]">
                 <span className="type-label text-[var(--text-tertiary)]">Segment</span>
-                <span className="type-label text-[var(--text-tertiary)] text-right">CPM</span>
+                <span className="type-label text-[var(--text-tertiary)] text-right hidden md:block">CPM</span>
                 <span className="type-label text-[var(--text-tertiary)] text-right">Lift</span>
                 <span className="type-label text-[var(--text-tertiary)] text-right">Action</span>
               </div>
@@ -115,26 +115,26 @@ export default function Scenario() {
                   initial={{ opacity: 0, x: -10 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
-                  className={`grid grid-cols-[1fr_60px_60px_60px] gap-2 py-2 border-b border-[var(--border-subtle)] ${
+                  className={`grid grid-cols-[1fr_50px_50px] md:grid-cols-[1fr_60px_60px_60px] gap-2 py-2 border-b border-[var(--border-subtle)] min-w-[280px] ${
                     segment.action === 'veto' ? 'opacity-50' : ''
                   }`}
                 >
-                  <span className={`font-mono text-sm truncate ${
+                  <span className={`font-mono text-xs md:text-sm truncate ${
                     segment.action === 'keep' ? 'text-[var(--text-primary)]' : 'text-[var(--text-secondary)]'
                   }`}>
                     {segment.name}
                   </span>
-                  <span className="font-mono text-sm text-[var(--text-secondary)] text-right">
+                  <span className="font-mono text-sm text-[var(--text-secondary)] text-right hidden md:block">
                     ${segment.cost.toFixed(2)}
                   </span>
-                  <span className={`font-mono text-sm text-right ${
+                  <span className={`font-mono text-xs md:text-sm text-right ${
                     segment.lift.startsWith('+') && segment.lift !== '+0.0%'
                       ? 'text-[var(--accent)]'
                       : 'text-[var(--text-tertiary)]'
                   }`}>
                     {segment.lift}
                   </span>
-                  <span className={`font-mono text-sm text-right uppercase ${
+                  <span className={`font-mono text-xs md:text-sm text-right uppercase ${
                     segment.action === 'keep' ? 'text-[var(--accent)]' : 'text-[var(--text-tertiary)]'
                   }`}>
                     {segment.action}
