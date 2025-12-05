@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -16,27 +16,54 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600", "700"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "PRECISE — See Where Every Dollar Goes",
-  description: "Stop paying for garbage data. Real-time segment scoring, cryptographic proof, and waste elimination for programmatic advertising.",
-  keywords: ["programmatic", "advertising", "transparency", "DSP", "agency", "media buying", "waste audit", "segment scoring"],
-  authors: [{ name: "Precise" }],
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
+  title: "Precise.ai — Eliminate 35–47% Programmatic Data Waste & Prove ROAS",
+  description: "Remove 35–47% of programmatic data waste in real time. Get Valence-signed proof of every dollar saved and ROAS lift. Free waste audit in 48 hours.",
+  keywords: ["programmatic", "advertising", "transparency", "DSP", "agency", "media buying", "waste audit", "segment scoring", "ROAS", "data waste"],
+  authors: [{ name: "Precise.ai" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://website-eta-wine-40.vercel.app/",
   },
   openGraph: {
-    title: "PRECISE — See Where Every Dollar Goes",
-    description: "Stop paying for garbage data. Real-time segment scoring, cryptographic proof, and waste elimination.",
+    title: "Precise.ai — Eliminate 35–47% Programmatic Data Waste & Prove ROAS",
+    description: "Remove 35–47% of programmatic data waste in real time. Get Valence-signed proof of every dollar saved and ROAS lift. Free waste audit in 48 hours.",
     type: "website",
     locale: "en_US",
+    url: "https://website-eta-wine-40.vercel.app/",
+    siteName: "Precise.ai",
+    images: [
+      {
+        url: "https://website-eta-wine-40.vercel.app/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Precise.ai - Eliminate Programmatic Data Waste",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PRECISE — See Where Every Dollar Goes",
-    description: "Stop paying for garbage data. Real-time segment scoring, cryptographic proof, and waste elimination.",
+    title: "Precise.ai — Eliminate 35–47% Programmatic Data Waste & Prove ROAS",
+    description: "Remove 35–47% of programmatic data waste in real time. Get Valence-signed proof of every dollar saved and ROAS lift. Free waste audit in 48 hours.",
+    images: ["https://website-eta-wine-40.vercel.app/og.png"],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Precise.ai",
+  "url": "https://precise.ai",
+  "logo": "https://website-eta-wine-40.vercel.app/logo.png",
 };
 
 export default function RootLayout({
@@ -46,6 +73,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} ${ibmPlexMono.variable}`}>
         {children}
       </body>
