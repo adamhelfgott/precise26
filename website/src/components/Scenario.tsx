@@ -147,12 +147,57 @@ export default function Scenario() {
           </div>
         </motion.div>
 
+        {/* Bar Chart - Waste Reduction */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-12 p-6 md:p-8 border-[3px] border-[var(--border)] bg-[var(--bg-elevated)]"
+        >
+          <div className="type-label text-[var(--text-tertiary)] mb-6">SEGMENT REDUCTION</div>
+
+          <div className="flex items-end gap-8 md:gap-16 justify-center h-48">
+            {/* Before bar */}
+            <div className="flex flex-col items-center">
+              <span className="font-mono font-bold text-2xl text-[var(--danger)] mb-2">52</span>
+              <div
+                className="w-16 md:w-24 bg-[var(--danger)]"
+                style={{ height: '140px' }}
+              />
+              <span className="font-mono text-xs text-[var(--text-tertiary)] mt-2 uppercase tracking-widest">Before</span>
+            </div>
+
+            {/* Arrow */}
+            <div className="flex flex-col items-center justify-center pb-8">
+              <span className="font-mono text-2xl text-[var(--accent)]">→</span>
+            </div>
+
+            {/* After bar */}
+            <div className="flex flex-col items-center">
+              <span className="font-mono font-bold text-2xl text-[var(--accent)] mb-2">3</span>
+              <div
+                className="w-16 md:w-24 bg-[var(--accent)]"
+                style={{ height: '8px', marginTop: '132px' }}
+              />
+              <span className="font-mono text-xs text-[var(--text-tertiary)] mt-2 uppercase tracking-widest">After</span>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-4 border-t border-[var(--border-subtle)] text-center">
+            <span className="font-mono text-sm text-[var(--text-secondary)]">
+              <span className="text-[var(--danger)]">49 garbage segments</span>
+              {' '}→{' '}
+              <span className="text-[var(--accent)]">$18.4K saved</span>
+            </span>
+          </div>
+        </motion.div>
+
         {/* The aha moment */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 p-6 border-l-[3px] border-[var(--danger)]"
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-8 p-6 border-l-[3px] border-[var(--danger)]"
         >
           <p className="text-lg text-[var(--text-secondary)]">
             <span className="text-[var(--text-primary)] font-semibold">Yacht Enthusiasts at $0.22 CPM.</span>

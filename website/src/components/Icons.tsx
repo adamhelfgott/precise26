@@ -163,6 +163,63 @@ export function MoneyArrow({ className = '' }: { className?: string }) {
   );
 }
 
+// Govern icon - gavel/shield with veto power
+export function GovernIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 50 50" className={className} style={{ transform: 'rotate(-2deg)' }}>
+      {/* Shield shape */}
+      <path
+        d="M25 4 L44 10 L44 28 Q44 42 25 48 Q6 42 6 28 L6 10 Z"
+        fill="none"
+        stroke="#E84335"
+        strokeWidth="3"
+      />
+      {/* X mark inside */}
+      <path
+        d="M17 18 L33 34 M33 18 L17 34"
+        stroke="#E84335"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+// Prove icon - certificate/seal with hash
+export function ProveIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 50 50" className={className} style={{ transform: 'rotate(1deg)' }}>
+      {/* Certificate */}
+      <rect x="6" y="6" width="38" height="32" fill="none" stroke="#00B894" strokeWidth="2" rx="2"/>
+      {/* Lines */}
+      <line x1="12" y1="14" x2="32" y2="14" stroke="#00B894" strokeWidth="2" opacity="0.5"/>
+      <line x1="12" y1="22" x2="28" y2="22" stroke="#00B894" strokeWidth="2" opacity="0.5"/>
+      {/* Seal at bottom */}
+      <circle cx="36" cy="38" r="10" fill="#00B894"/>
+      <path d="M32 38 L35 41 L42 34" stroke="#FAFAFA" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+// Local pin - map marker for local traders
+export function LocalPin({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 40 50" className={className} style={{ transform: 'rotate(-5deg)' }}>
+      {/* Pin body */}
+      <path
+        d="M20 4 Q34 4 34 18 Q34 28 20 44 Q6 28 6 18 Q6 4 20 4"
+        fill="#E84335"
+        stroke="#1A1A1A"
+        strokeWidth="1.5"
+      />
+      {/* Inner circle */}
+      <circle cx="20" cy="18" r="6" fill="#FAFAFA"/>
+      {/* Highlight */}
+      <circle cx="14" cy="12" r="3" fill="#FAFAFA" opacity="0.3"/>
+    </svg>
+  );
+}
+
 export function AuditIcon({ className = '' }: { className?: string }) {
   return (
     <svg
