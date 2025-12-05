@@ -28,7 +28,7 @@ export default function CTA() {
       const response = await fetch('/api/audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, source: 'main' }),
       });
 
       const data = await response.json();

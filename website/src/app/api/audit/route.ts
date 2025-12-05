@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Validate required fields
-    const { email, campaign_id, name, message } = body;
+    const { email, campaign_id, name, message, source } = body;
 
     if (!email || typeof email !== 'string') {
       return NextResponse.json(
@@ -31,17 +31,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Get IP address
+    const forwardedFor = request.headers.get('x-forwarded-for');
+    const realIp = request.headers.get('x-real-ip');
+    const ip = forwardedFor?.split(',')[0]?.trim() || realIp || 'unknown';
+
+    // Get other headers
+    const userAgent = request.headers.get('user-agent') || 'unknown';
+    const referer = request.headers.get('referer') || null;
+    const acceptLanguage = request.headers.get('accept-language') || null;
+
+    // Geo data from Vercel headers (if available)
+    const country = request.headers.get('x-vercel-ip-country') || null;
+    const region = request.headers.get('x-vercel-ip-country-region') || null;
+    const city = request.headers.get('x-vercel-ip-city') || null;
+
     // Connect to database
     const { db } = await connectToDatabase();
     const collection = db.collection('audit_requests');
 
-    // Create document with permanent project field
+    // Create document with all tracking data
     const document = {
+      // Form data
       email: email.toLowerCase().trim(),
       campaign_id: campaign_id.trim(),
       name: name?.trim() || null,
       message: message?.trim() || null,
-      project: 'precise', // Permanent field
+
+      // Tracking
+      source: source || 'main',  // 'main', 'local-ctv', 'cdp', etc.
+      ip,
+      userAgent,
+      referer,
+      acceptLanguage,
+
+      // Geo (from Vercel)
+      geo: country ? { country, region, city } : null,
+
+      // Metadata
+      project: 'precise',
       submitted_at: new Date(),
       status: 'pending',
     };
