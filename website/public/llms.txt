@@ -1,8 +1,5 @@
 # llms.txt for Precise.ai
-User-agent: *
+Model: *
 Allow: /
-Disallow: /leads
-Disallow: /report
-Sitemap: https://website-eta-wine-40.vercel.app/sitemap.xml
 Contact: hello@precise.ai
-Content-Type: Audit reports, ad-tech optimization guides, programmatic waste elimination
+Description: Precise.ai eliminates 35–47% of programmatic data waste and provides Valence-signed proof of ROAS lift. Free waste audits available.

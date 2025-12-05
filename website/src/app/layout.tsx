@@ -60,10 +60,18 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "SoftwareApplication",
   "name": "Precise.ai",
+  "description": "Eliminate 35–47% programmatic data waste in real time and get Valence-signed proof of every dollar saved and ROAS lift.",
   "url": "https://precise.ai",
-  "logo": "https://website-eta-wine-40.vercel.app/logo.png",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "url": "https://website-eta-wine-40.vercel.app/"
+  }
 };
 
 export default function RootLayout({
