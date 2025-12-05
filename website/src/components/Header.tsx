@@ -18,85 +18,72 @@ export default function Header() {
   return (
     <>
       <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-background/80 backdrop-blur-xl border-b border-border'
+            ? 'bg-[var(--bg-primary)]/90 backdrop-blur-sm'
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16">
-          <nav className="flex items-center justify-between h-20 md:h-24">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12">
+          <nav className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#" className="relative group">
-              <div className="flex items-center gap-1">
-                <span className="text-muted text-xs font-mono opacity-50 group-hover:opacity-100 transition-opacity">+</span>
-                <span
-                  className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-foreground"
-                  style={{ fontFamily: 'var(--font-display), sans-serif' }}
-                >
-                  PRECISE
-                </span>
-                <span className="text-muted text-xs font-mono opacity-50 group-hover:opacity-100 transition-opacity">+</span>
-              </div>
+            <a href="#" className="flex items-center gap-2">
+              <span className="reg-mark">+</span>
+              <span className="type-display text-sm tracking-[0.3em]">
+                PRECISE
+              </span>
+              <span className="reg-mark">+</span>
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-12">
-              <a
-                href="#products"
-                className="text-sm text-muted hover:text-foreground transition-colors link-underline"
-              >
-                Products
-              </a>
-              <a
-                href="#approach"
-                className="text-sm text-muted hover:text-foreground transition-colors link-underline"
-              >
+            <div className="hidden md:flex items-center gap-10">
+              <a href="#approach" className="nav-link">
                 Approach
               </a>
-              <a
-                href="#partners"
-                className="text-sm text-muted hover:text-foreground transition-colors link-underline"
-              >
-                Partners
+              <a href="#products" className="nav-link">
+                Products
               </a>
-              <a
-                href="#contact"
-                className="btn-primary inline-block"
-              >
-                Get in Touch
+              <a href="#contact" className="nav-link">
+                Contact
               </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden relative w-10 h-10 flex items-center justify-center"
+              className="md:hidden p-2"
               aria-label="Toggle menu"
             >
-              <div className="relative w-6 h-4">
+              <div className="w-5 h-3 flex flex-col justify-between">
                 <span
-                  className={`absolute left-0 w-full h-[1px] bg-foreground transition-all duration-300 ${
-                    isMobileMenuOpen ? 'top-1/2 rotate-45' : 'top-0'
+                  className={`block h-px bg-[var(--text-primary)] transition-transform duration-300 ${
+                    isMobileMenuOpen ? 'rotate-45 translate-y-[5px]' : ''
                   }`}
                 />
                 <span
-                  className={`absolute left-0 top-1/2 w-full h-[1px] bg-foreground transition-all duration-300 ${
-                    isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
+                  className={`block h-px bg-[var(--text-primary)] transition-opacity duration-300 ${
+                    isMobileMenuOpen ? 'opacity-0' : ''
                   }`}
                 />
                 <span
-                  className={`absolute left-0 w-full h-[1px] bg-foreground transition-all duration-300 ${
-                    isMobileMenuOpen ? 'top-1/2 -rotate-45' : 'bottom-0'
+                  className={`block h-px bg-[var(--text-primary)] transition-transform duration-300 ${
+                    isMobileMenuOpen ? '-rotate-45 -translate-y-[5px]' : ''
                   }`}
                 />
               </div>
             </button>
           </nav>
         </div>
+
+        {/* Hairline under header when scrolled */}
+        <div
+          className={`h-px bg-[var(--border)] transition-opacity duration-300 ${
+            isScrolled ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
       </motion.header>
 
       {/* Mobile Menu */}
@@ -106,45 +93,32 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background md:hidden"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-[var(--bg-primary)] md:hidden pt-20"
           >
-            <motion.nav
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 50, opacity: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className="flex flex-col items-center justify-center h-full gap-8"
-            >
-              <a
-                href="#products"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-3xl font-display tracking-wide text-foreground"
-              >
-                Products
-              </a>
+            <nav className="flex flex-col items-center justify-center h-full gap-8">
               <a
                 href="#approach"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-3xl font-display tracking-wide text-foreground"
+                className="type-display-sm"
               >
                 Approach
               </a>
               <a
-                href="#partners"
+                href="#products"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-3xl font-display tracking-wide text-foreground"
+                className="type-display-sm"
               >
-                Partners
+                Products
               </a>
               <a
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-primary mt-8"
+                className="type-display-sm"
               >
-                Get in Touch
+                Contact
               </a>
-            </motion.nav>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

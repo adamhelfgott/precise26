@@ -1,45 +1,36 @@
 import type { Metadata } from "next";
-import { Outfit, Bebas_Neue, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
-});
-
-const bebasNeue = Bebas_Neue({
-  variable: "--font-display",
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
+  weight: ["200", "300", "400", "500"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
-  title: "PRECISE | The Control Layer for Programmatic",
-  description: "Take control of your programmatic spend. Real-time veto power over auto-appended segments. Proof that wins reviews. Performance that speaks for itself.",
-  keywords: ["programmatic advertising", "DSP", "agency", "media buying", "ad tech", "CTV", "performance marketing"],
-  authors: [{ name: "Precise.ai" }],
+  title: "PRECISE",
+  description: "See where every dollar goes. Math, not promises.",
+  keywords: ["programmatic", "advertising", "transparency", "DSP", "agency", "media buying"],
+  authors: [{ name: "Precise" }],
   openGraph: {
-    title: "PRECISE | The Control Layer for Programmatic",
-    description: "Take control of your programmatic spend. Real-time veto power over auto-appended segments.",
+    title: "PRECISE",
+    description: "See where every dollar goes. Math, not promises.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PRECISE | The Control Layer for Programmatic",
-    description: "Take control of your programmatic spend.",
-  },
-  robots: {
-    index: true,
-    follow: true,
+    title: "PRECISE",
+    description: "See where every dollar goes. Math, not promises.",
   },
 };
 
@@ -49,11 +40,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${outfit.variable} ${bebasNeue.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
-      >
-        <div className="noise-overlay" aria-hidden="true" />
+    <html lang="en">
+      <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
         {children}
       </body>
     </html>
