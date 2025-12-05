@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Problem from '@/components/Problem';
 import Scenario from '@/components/Scenario';
+import PathFinder from '@/components/PathFinder';
 import Products from '@/components/Products';
 import Partners from '@/components/Partners';
 import CTA from '@/components/CTA';
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <Problem />
         <Scenario />
+        <PathFinder />
         <Products />
         <Partners />
         <CTA />
