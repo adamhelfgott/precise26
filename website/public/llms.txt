@@ -1,0 +1,8 @@
+# llms.txt for Precise.ai
+User-agent: *
+Allow: /
+Disallow: /leads
+Disallow: /report
+Sitemap: https://website-eta-wine-40.vercel.app/sitemap.xml
+Contact: hello@precise.ai
+Content-Type: Audit reports, ad-tech optimization guides, programmatic waste elimination
