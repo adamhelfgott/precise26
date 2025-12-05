@@ -12,6 +12,7 @@ export default function PathFinder() {
   return (
     <section
       ref={sectionRef}
+      id="path"
       className="section bg-[var(--bg-primary)] border-t-[3px] border-[var(--border)]"
     >
       <div className="max-w-[1000px] mx-auto">

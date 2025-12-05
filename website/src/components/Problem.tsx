@@ -31,6 +31,25 @@ export default function Problem() {
           </p>
         </motion.div>
 
+        {/* Agency Teaser */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mb-16 md:mb-24 p-8 border-[3px] border-[var(--accent)] bg-[var(--accent-muted)]"
+        >
+          <h3 className="font-mono text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-4">
+            Trading Head in Q4 Review?
+          </h3>
+          <p className="font-mono text-lg text-[var(--text-secondary)] mb-6">
+            Veto 35–47% waste. Prove 29–41% lift.
+          </p>
+          <p className="text-[var(--text-secondary)]">
+            <a href="#contact" className="text-[var(--accent)] font-semibold hover:underline">Start your audit below</a>
+            —or <a href="#path" className="text-[var(--accent)] font-semibold hover:underline">choose your path</a>.
+          </p>
+        </motion.div>
+
         {/* The insight */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
