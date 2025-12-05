@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   description: "Stop paying for garbage data. Real-time segment scoring, cryptographic proof, and waste elimination for programmatic advertising.",
   keywords: ["programmatic", "advertising", "transparency", "DSP", "agency", "media buying", "waste audit", "segment scoring"],
   authors: [{ name: "Precise" }],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
   openGraph: {
     title: "PRECISE — See Where Every Dollar Goes",
     description: "Stop paying for garbage data. Real-time segment scoring, cryptographic proof, and waste elimination.",
