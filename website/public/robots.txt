@@ -1,0 +1,12 @@
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: *
+Allow: /
+Sitemap: https://website-eta-wine-40.vercel.app/sitemap.xml
