@@ -70,6 +70,11 @@ export default function CTA() {
             </div>
           </div>
 
+          {/* Review season line */}
+          <p className="text-[var(--text-primary)] font-bold mb-8 mt-4" style={{ fontSize: '24px' }}>
+            For agencies in review: get the one-slide proof before your next deck is due.
+          </p>
+
           {/* Success State */}
           {formState === 'success' ? (
             <motion.div

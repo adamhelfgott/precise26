@@ -58,11 +58,22 @@ export default function Hero() {
           </div>
         </motion.div>
 
+        {/* Founder line */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-[#666666] text-lg max-w-md mb-8"
+          style={{ fontSize: '18px' }}
+        >
+          Built by Adam Helfgott — founder of MadHive — now fixing what comes next.
+        </motion.p>
+
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           className="mb-6"
         >
           <a href="#contact" className="btn-primary text-lg py-5 px-10">
@@ -72,16 +83,6 @@ export default function Hero() {
             48 hours. No sales call.
           </p>
         </motion.div>
-
-        {/* Founder line */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-[var(--text-tertiary)] text-sm max-w-md"
-        >
-          Built by the founder of MadHive. Now fixing what comes next.
-        </motion.p>
       </div>
 
       {/* Bottom info bar */}
