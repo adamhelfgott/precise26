@@ -1,31 +1,40 @@
 @import "tailwindcss";
 
 /*
-  PRECISE Design System
-  ---------------------
-  Philosophy: Precision through restraint.
-  Every element measured, intentional, exact.
+  PRECISE Design System — Forensic Report Edition
+  ------------------------------------------------
+  Colors: Ink (#1A1A1A), Paper (#FAFAFA), Precise Green (#00B894), Veto Red (#E84335)
+  Fonts: Inter + IBM Plex Mono
+  Aesthetic: Hand-stamped, brutalist, looks good printed in B&W
 */
 
 :root {
-  /* Refined dark palette */
-  --bg-primary: #080808;
-  --bg-elevated: #0c0c0c;
-  --bg-surface: #111111;
+  /* Core palette - forensic report */
+  --ink: #1A1A1A;
+  --paper: #FAFAFA;
+  --precise-green: #00B894;
+  --veto-red: #E84335;
+
+  /* Dark mode palette */
+  --bg-primary: #0A0A0A;
+  --bg-elevated: #111111;
+  --bg-surface: #161616;
 
   /* Text hierarchy */
-  --text-primary: #f2f2f2;
+  --text-primary: #FAFAFA;
   --text-secondary: #888888;
   --text-tertiary: #555555;
 
-  /* Accent - used sparingly */
-  --accent: #c8ff00;
-  --accent-muted: rgba(200, 255, 0, 0.15);
+  /* Accent colors */
+  --accent: #00B894;
+  --accent-muted: rgba(0, 184, 148, 0.15);
+  --danger: #E84335;
+  --danger-muted: rgba(232, 67, 53, 0.15);
 
   /* Structural */
-  --border: #1a1a1a;
-  --border-subtle: #141414;
-  --rule: #222222;
+  --border: #2A2A2A;
+  --border-subtle: #1E1E1E;
+  --rule: #333333;
 }
 
 @theme inline {
@@ -37,6 +46,7 @@
   --color-text-tertiary: var(--text-tertiary);
   --color-accent: var(--accent);
   --color-border: var(--border);
+  --color-danger: var(--danger);
 }
 
 /* Base */
@@ -61,7 +71,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: var(--bg-primary);
+  color: var(--ink);
 }
 
 /* Scrollbar - minimal */
@@ -76,80 +86,148 @@ body {
 }
 
 /* ==========================================
-   TYPOGRAPHY SYSTEM
+   TYPOGRAPHY SYSTEM — Forensic Report
    ========================================== */
 
-/* Display - Large headlines */
+/* Display - Giant bold numbers */
 .type-display {
-  font-weight: 300;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1;
 }
 
 .type-display-lg {
-  font-size: clamp(3rem, 12vw, 10rem);
-  font-weight: 200;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 0.9;
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.85;
 }
 
 .type-display-md {
-  font-size: clamp(2rem, 6vw, 4.5rem);
-  font-weight: 300;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1;
 }
 
 .type-display-sm {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 300;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   line-height: 1.1;
 }
 
-/* Headings */
-.type-heading {
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1.2;
+/* Monospace - for data/technical */
+.type-mono {
+  font-family: 'IBM Plex Mono', var(--font-mono), ui-monospace, monospace;
+  font-weight: 500;
+}
+
+.type-mono-lg {
+  font-family: 'IBM Plex Mono', var(--font-mono), ui-monospace, monospace;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 /* Body */
 .type-body {
   font-weight: 400;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   line-height: 1.7;
 }
 
 .type-body-lg {
   font-size: 1.25rem;
   font-weight: 400;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   line-height: 1.7;
 }
 
-/* Labels - Technical/Monospace feel */
+/* Labels - Monospace stamps */
 .type-label {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: 'IBM Plex Mono', var(--font-mono), ui-monospace, monospace;
   font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
 
 .type-label-accent {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: 'IBM Plex Mono', var(--font-mono), ui-monospace, monospace;
   font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--accent);
+}
+
+.type-label-danger {
+  font-family: 'IBM Plex Mono', var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--danger);
+}
+
+/* ==========================================
+   FORENSIC ELEMENTS
+   ========================================== */
+
+/* Hand-stamped text effect */
+.stamp {
+  display: inline-block;
+  transform: rotate(-2deg);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.stamp-veto {
+  color: var(--danger);
+  border: 3px solid var(--danger);
+  padding: 4px 12px;
+  transform: rotate(-3deg);
+}
+
+.stamp-keep {
+  color: var(--accent);
+  border: 3px solid var(--accent);
+  padding: 4px 12px;
+  transform: rotate(2deg);
+}
+
+/* Brutalist borders */
+.border-brutal {
+  border: 3px solid var(--text-primary);
+}
+
+.border-brutal-accent {
+  border: 3px solid var(--accent);
+}
+
+/* Crooked elements - slight rotation for hand-done feel */
+.crooked-1 { transform: rotate(-1deg); }
+.crooked-2 { transform: rotate(1deg); }
+.crooked-3 { transform: rotate(-2deg); }
+
+/* Strike-through for vetoed items */
+.vetoed {
+  position: relative;
+  opacity: 0.5;
+}
+.vetoed::after {
+  content: '';
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  top: 50%;
+  height: 3px;
+  background: var(--danger);
+  transform: rotate(-2deg);
 }
 
 /* ==========================================
@@ -159,20 +237,21 @@ body {
 /* Hairline rules */
 .rule-h {
   width: 100%;
-  height: 1px;
+  height: 2px;
   background: var(--rule);
 }
 
 .rule-v {
-  width: 1px;
+  width: 2px;
   height: 100%;
   background: var(--rule);
 }
 
-/* Registration marks (the + symbols) */
+/* Registration marks */
 .reg-mark {
-  font-family: var(--font-mono), monospace;
-  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
   color: var(--text-tertiary);
   user-select: none;
   line-height: 1;
@@ -180,18 +259,18 @@ body {
 
 /* Section padding */
 .section {
-  padding: 100px 24px;
+  padding: 80px 24px;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: 140px 48px;
+    padding: 120px 48px;
   }
 }
 
 @media (min-width: 1024px) {
   .section {
-    padding: 180px 80px;
+    padding: 160px 80px;
   }
 }
 
@@ -207,63 +286,95 @@ body {
 }
 
 /* ==========================================
-   INTERACTIVE ELEMENTS
+   INTERACTIVE ELEMENTS — Forensic Style
    ========================================== */
 
-/* Primary button */
+/* Primary button - big, green, slightly crooked */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 40px;
-  background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--text-primary);
-  font-family: var(--font-mono), monospace;
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
+  padding: 20px 48px;
+  background: var(--accent);
+  color: var(--ink);
+  border: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
+  transform: rotate(-1deg);
 }
 
 .btn-primary:hover {
+  background: #00D9A5;
+  transform: rotate(0deg) scale(1.02);
+}
+
+.btn-primary:disabled {
+  background: var(--text-tertiary);
+  cursor: not-allowed;
+  transform: rotate(-1deg);
+}
+
+/* Secondary button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 3px solid var(--text-primary);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
   background: var(--text-primary);
   color: var(--bg-primary);
 }
 
-/* Text link */
-.link {
-  color: var(--text-primary);
-  text-decoration: none;
-  position: relative;
-}
-
-.link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
-
-.link:hover::after {
+/* Form inputs - monospace, brutalist */
+.input-field {
   width: 100%;
+  padding: 16px 20px;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border);
+  color: var(--text-primary);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
 }
 
-.link:hover {
-  color: var(--accent);
+.input-field::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.input-field:invalid {
+  border-color: var(--danger);
 }
 
 /* Nav link */
 .nav-link {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-secondary);
   text-decoration: none;
@@ -275,32 +386,88 @@ body {
 }
 
 /* ==========================================
-   LAYOUT UTILITIES
+   CARD PATTERNS — Brutalist
    ========================================== */
 
-/* Full bleed */
-.full-bleed {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+/* Card - brutalist with thick border */
+.card {
+  padding: 32px;
+  border: 3px solid var(--border);
+  background: var(--bg-elevated);
+  transition: border-color 0.2s ease;
 }
 
-/* Aspect ratios */
-.aspect-square { aspect-ratio: 1 / 1; }
-.aspect-video { aspect-ratio: 16 / 9; }
+.card:hover {
+  border-color: var(--text-tertiary);
+}
 
-/* Grid backgrounds - very subtle */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-  background-size: 80px 80px;
+.card-accent {
+  padding: 32px;
+  border: 3px solid var(--accent);
+  background: var(--accent-muted);
+}
+
+/* Suite card - for products */
+.suite-card {
+  padding: 32px;
+  border: 3px solid var(--border);
+  background: var(--bg-elevated);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.suite-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.suite-card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 24px;
+  width: 60px;
+  height: 6px;
+  background: var(--accent);
+}
+
+/* ==========================================
+   DATA TABLE — Forensic Report Style
+   ========================================== */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  border-bottom: 3px solid var(--border);
+}
+
+.data-table td {
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.data-table tr.vetoed td {
+  opacity: 0.4;
+  text-decoration: line-through;
+  text-decoration-color: var(--danger);
 }
 
 /* ==========================================
    ANIMATION
    ========================================== */
 
-/* Fade in - simple, elegant */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -317,12 +484,27 @@ body {
   }
 }
 
+@keyframes stampIn {
+  from {
+    opacity: 0;
+    transform: scale(1.5) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(-2deg);
+  }
+}
+
 .animate-fade-in {
-  animation: fadeIn 0.8s ease forwards;
+  animation: fadeIn 0.6s ease forwards;
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease forwards;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-stamp {
+  animation: stampIn 0.3s ease forwards;
 }
 
 /* Delays */
@@ -333,43 +515,35 @@ body {
 .delay-5 { animation-delay: 0.5s; }
 
 /* ==========================================
-   COMPONENT PATTERNS
+   PRINT STYLES — B&W Compatible
    ========================================== */
 
-/* Card - minimal, sharp */
-.card {
-  padding: 32px;
-  border: 1px solid var(--border);
-  background: var(--bg-elevated);
-  transition: border-color 0.3s ease;
-}
+@media print {
+  :root {
+    --bg-primary: #FFFFFF;
+    --bg-elevated: #FFFFFF;
+    --bg-surface: #F5F5F5;
+    --text-primary: #1A1A1A;
+    --text-secondary: #555555;
+    --text-tertiary: #888888;
+    --accent: #1A1A1A;
+    --danger: #1A1A1A;
+    --border: #1A1A1A;
+  }
 
-.card:hover {
-  border-color: var(--text-tertiary);
-}
+  body {
+    background: white;
+    color: black;
+  }
 
-/* Principle item */
-.principle {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+  .btn-primary {
+    background: black;
+    color: white;
+  }
 
-.principle-number {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.75rem;
-  color: var(--accent);
-  letter-spacing: 0.1em;
-}
-
-.principle-title {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.principle-text {
-  color: var(--text-secondary);
-  max-width: 400px;
+  .stamp-veto,
+  .stamp-keep {
+    border-color: black;
+    color: black;
+  }
 }

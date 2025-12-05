@@ -1,59 +1,75 @@
 'use client';
 
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { VetoStamp, WaxSeal, PushPin, MoneyArrow } from './Icons';
 
 const products = [
   {
     id: 'govern',
     name: 'Govern',
     tagline: 'Stop paying for garbage data.',
-    problem: 'Your DSP auto-appends 40+ segments you never asked for. You pay for every one. Most add zero value.',
-    mechanism: 'We score each segment in real-time, showing marginal lift vs cost. Before the bid fires, you see exactly what\'s being added—and veto anything that doesn\'t perform.',
-    result: 'Eliminate 35-47% waste. Keep only segments that actually drive outcomes.',
+    description: 'Real-time segment scoring. Veto auto-appended segments before the bid fires. Keep only what adds value.',
+    icon: 'veto',
+    stat: '39',
+    statLabel: 'segments vetoed avg',
   },
   {
     id: 'prove',
     name: 'Prove',
     tagline: 'Your proof, not theirs.',
-    problem: 'You need to show clients and bosses that spend worked. But all you have is black-box DSP reporting you didn\'t generate.',
-    mechanism: 'Every audience gets a cryptographic fingerprint—a Merkle root proving its exact composition without revealing members. We sign reports showing what you eliminated, what you kept, and the lift achieved. Verifiable by anyone.',
-    result: 'Walk into any review with cryptographic proof that holds up. Not trust-us. Verify-it-yourself.',
+    description: 'Cryptographic fingerprints prove audience composition. Walk into any meeting with verifiable evidence.',
+    icon: 'seal',
+    stat: '100%',
+    statLabel: 'audit trail',
   },
   {
     id: 'local',
     name: 'Local',
     tagline: 'Pull national dollars into your market.',
-    problem: 'National budgets go to national buyers. You\'re a local trader watching dollars flow past your market.',
-    mechanism: 'Auto-split national audiences into 200+ hyper-local cohorts. Each split carries cryptographic proof of composition—privacy-safe verification that your local cohort is as valuable as the national one.',
-    result: 'Prove your market\'s ROAS is better. Take budget that used to bypass you.',
+    description: 'Auto-split national audiences into 200+ hyper-local cohorts with proof of equal value.',
+    icon: 'pin',
+    stat: '200+',
+    statLabel: 'local cohorts',
   },
   {
     id: 'direct',
     name: 'Direct',
-    tagline: 'Know exactly where your next dollar should go.',
-    problem: 'You\'re buying across multiple DSPs but have no way to compare real performance. Which impression is actually worth more?',
-    mechanism: 'Real-time impression-level scoring across every DSP. "This MadHive CTV pod = 2.1x lift vs display elsewhere." Cross-platform intelligence that follows the signal, not the vendor.',
-    result: 'Allocate with precision. Every dollar to the highest-performing path.',
+    tagline: 'Know exactly where to buy.',
+    description: 'Real-time impression scoring across DSPs. Route spend to highest-performing paths.',
+    icon: 'arrow',
+    stat: '2.1x',
+    statLabel: 'avg lift identified',
   },
   {
     id: 'route',
     name: 'Route',
-    tagline: 'Budget follows performance, not guesswork.',
-    problem: 'Manual budget allocation is slow and reactive. By the time you shift spend, the opportunity is gone.',
-    mechanism: 'Set your outcome targets. Route automatically shifts budget to best-performing paths in real-time. Cross-DSP optimization based on actual outcomes, not vendor self-reporting.',
-    result: 'Continuous optimization without manual intervention. Better outcomes while you sleep.',
+    tagline: 'Budget follows performance.',
+    description: 'Automatic cross-DSP optimization based on outcomes, not vendor self-reporting.',
+    icon: 'arrow',
+    stat: '+41%',
+    statLabel: 'ROAS improvement',
   },
 ];
+
+function ProductIcon({ icon }: { icon: string }) {
+  switch (icon) {
+    case 'veto':
+      return <VetoStamp className="w-20 h-10" />;
+    case 'seal':
+      return <WaxSeal className="w-14 h-14" />;
+    case 'pin':
+      return <PushPin className="w-10 h-12" />;
+    case 'arrow':
+      return <MoneyArrow className="w-14 h-10" />;
+    default:
+      return null;
+  }
+}
 
 export default function Products() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
-  const [expandedProduct, setExpandedProduct] = useState<string | null>(null);
-
-  const toggleProduct = (id: string) => {
-    setExpandedProduct(expandedProduct === id ? null : id);
-  };
 
   return (
     <section ref={sectionRef} id="products" className="section">
@@ -62,103 +78,71 @@ export default function Products() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="mb-16 md:mb-24"
+          transition={{ duration: 0.6 }}
+          className="mb-16"
         >
-          <span className="type-label-accent mb-6 block">The Suite</span>
+          <span className="type-label-accent mb-4 block">The Suite</span>
           <h2 className="type-display-md max-w-3xl">
-            Five tools to deconstruct your spend
-            <span className="text-[var(--text-secondary)]"> and optimize what matters.</span>
+            Five tools to deconstruct your spend.
           </h2>
         </motion.div>
 
-        {/* Product list */}
+        {/* Product grid - brutalist cards */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {products.map((product, index) => (
-            <div
+            <motion.div
               key={product.id}
-              className="border-t border-[var(--border)] last:border-b"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+              className="suite-card flex flex-col"
             >
-              {/* Product header - clickable */}
-              <button
-                onClick={() => toggleProduct(product.id)}
-                className="w-full py-8 md:py-10 flex items-center justify-between gap-4 text-left group cursor-pointer"
-              >
-                <div className="flex items-center gap-4 md:gap-8">
-                  <span className="type-label text-[var(--text-tertiary)]">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <div>
-                    <h3
-                      className={`type-display-sm transition-colors duration-300 ${
-                        expandedProduct === product.id ? 'text-[var(--accent)]' : 'group-hover:text-[var(--accent)]'
-                      }`}
-                    >
-                      {product.name}
-                    </h3>
-                    <p className="text-[var(--text-secondary)] mt-2 text-sm md:text-base">
-                      {product.tagline}
-                    </p>
-                  </div>
-                </div>
+              {/* Icon */}
+              <div className="mb-6 h-14 flex items-center">
+                <ProductIcon icon={product.icon} />
+              </div>
 
-                {/* Expand indicator */}
-                <div className={`text-[var(--text-tertiary)] transition-transform duration-300 ${
-                  expandedProduct === product.id ? 'rotate-45' : ''
-                }`}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                    <line x1="12" y1="5" x2="12" y2="19" />
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                  </svg>
-                </div>
-              </button>
+              {/* Name */}
+              <h3 className="type-display-sm mb-2">{product.name}</h3>
 
-              {/* Expanded content */}
-              <AnimatePresence>
-                {expandedProduct === product.id && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pb-10 md:pb-12 pl-0 md:pl-20">
-                      <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-                        {/* Problem */}
-                        <div>
-                          <span className="type-label text-[var(--text-tertiary)] block mb-3">The Problem</span>
-                          <p className="text-[var(--text-secondary)] leading-relaxed">
-                            {product.problem}
-                          </p>
-                        </div>
+              {/* Tagline */}
+              <p className="text-[var(--accent)] font-mono text-sm font-semibold mb-4">
+                {product.tagline}
+              </p>
 
-                        {/* Mechanism */}
-                        <div>
-                          <span className="type-label text-[var(--accent)] block mb-3">What We Do</span>
-                          <p className="text-[var(--text-primary)] leading-relaxed">
-                            {product.mechanism}
-                          </p>
-                        </div>
+              {/* Description */}
+              <p className="text-[var(--text-secondary)] text-sm leading-relaxed flex-1">
+                {product.description}
+              </p>
 
-                        {/* Result */}
-                        <div>
-                          <span className="type-label text-[var(--text-tertiary)] block mb-3">The Result</span>
-                          <p className="text-[var(--text-secondary)] leading-relaxed">
-                            {product.result}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              {/* Stat */}
+              <div className="mt-6 pt-4 border-t border-[var(--border)]">
+                <span className="font-mono text-2xl font-bold text-[var(--text-primary)]">
+                  {product.stat}
+                </span>
+                <span className="type-label text-[var(--text-tertiary)] ml-3">
+                  {product.statLabel}
+                </span>
+              </div>
+            </motion.div>
           ))}
+        </motion.div>
+
+        {/* Bottom note */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-12 text-center"
+        >
+          <p className="type-label text-[var(--text-tertiary)]">
+            All tools include cryptographic proof generation
+          </p>
         </motion.div>
       </div>
     </section>

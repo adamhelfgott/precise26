@@ -20,19 +20,19 @@ export default function Header() {
       <motion.header
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.4 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[var(--bg-primary)]/90 backdrop-blur-sm'
+            ? 'bg-[var(--bg-primary)]/95 backdrop-blur-sm'
             : 'bg-transparent'
         }`}
       >
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
           <nav className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2">
+            <a href="#" className="flex items-center gap-3">
               <span className="reg-mark">+</span>
-              <span className="type-display text-sm tracking-[0.3em]">
+              <span className="font-bold text-lg tracking-tight">
                 PRECISE
               </span>
               <span className="reg-mark">+</span>
@@ -43,11 +43,14 @@ export default function Header() {
               <a href="#approach" className="nav-link">
                 Approach
               </a>
+              <a href="#scenario" className="nav-link">
+                In Action
+              </a>
               <a href="#products" className="nav-link">
                 Products
               </a>
-              <a href="#contact" className="nav-link">
-                Contact
+              <a href="#contact" className="btn-primary text-sm py-3 px-6">
+                Request Audit
               </a>
             </div>
 
@@ -57,20 +60,20 @@ export default function Header() {
               className="md:hidden p-2"
               aria-label="Toggle menu"
             >
-              <div className="w-5 h-3 flex flex-col justify-between">
+              <div className="w-6 h-4 flex flex-col justify-between">
                 <span
-                  className={`block h-px bg-[var(--text-primary)] transition-transform duration-300 ${
-                    isMobileMenuOpen ? 'rotate-45 translate-y-[5px]' : ''
+                  className={`block h-[2px] bg-[var(--text-primary)] transition-transform duration-300 ${
+                    isMobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''
                   }`}
                 />
                 <span
-                  className={`block h-px bg-[var(--text-primary)] transition-opacity duration-300 ${
+                  className={`block h-[2px] bg-[var(--text-primary)] transition-opacity duration-300 ${
                     isMobileMenuOpen ? 'opacity-0' : ''
                   }`}
                 />
                 <span
-                  className={`block h-px bg-[var(--text-primary)] transition-transform duration-300 ${
-                    isMobileMenuOpen ? '-rotate-45 -translate-y-[5px]' : ''
+                  className={`block h-[2px] bg-[var(--text-primary)] transition-transform duration-300 ${
+                    isMobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''
                   }`}
                 />
               </div>
@@ -80,7 +83,7 @@ export default function Header() {
 
         {/* Hairline under header when scrolled */}
         <div
-          className={`h-px bg-[var(--border)] transition-opacity duration-300 ${
+          className={`h-[2px] bg-[var(--border)] transition-opacity duration-300 ${
             isScrolled ? 'opacity-100' : 'opacity-0'
           }`}
         />
@@ -105,6 +108,13 @@ export default function Header() {
                 Approach
               </a>
               <a
+                href="#scenario"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="type-display-sm"
+              >
+                In Action
+              </a>
+              <a
                 href="#products"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="type-display-sm"
@@ -114,9 +124,9 @@ export default function Header() {
               <a
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="type-display-sm"
+                className="btn-primary mt-4"
               >
-                Contact
+                Request Audit
               </a>
             </nav>
           </motion.div>
