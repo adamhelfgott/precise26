@@ -24,8 +24,15 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Founder line */}
+        <div className="mt-8 text-center md:text-left">
+          <p className="text-[#666666] text-sm">
+            Built by Adam Helfgott — founder of MadHive — now fixing what comes next.
+          </p>
+        </div>
+
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t-[3px] border-[var(--border)] flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="mt-8 pt-8 border-t-[3px] border-[var(--border)] flex flex-col md:flex-row md:items-center justify-between gap-4">
           <span className="type-label text-[var(--text-tertiary)]">
             © {currentYear} Precise. Your advocate in programmatic.
           </span>

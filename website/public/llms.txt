@@ -1,5 +1,30 @@
-# llms.txt for Precise.ai
-Model: *
-Allow: /
-Contact: hello@precise.ai
-Description: Precise.ai eliminates 35–47% of programmatic data waste and provides Valence-signed proof of ROAS lift. Free waste audits available.
+# Precise.ai
+> Programmatic transparency & control platform. Eliminate 35–47% of data waste. Valence-signed proof of ROAS lift.
+
+## About
+Precise.ai eliminates programmatic data waste and provides cryptographic proof of media performance. Built by Adam Helfgott, founder of MadHive.
+
+## Products
+- **Govern**: Veto garbage segments before spend
+- **Valence**: Cryptographic proof of contribution
+- **Ingest**: First-party data onboarding with segment scoring
+
+## Key Stats
+- 35–47% data waste eliminated
+- ANA Q2 2025: $26.8B lost globally (36.5% from data inefficiency)
+- 29–41% average ROAS lift
+- <48 hour audit turnaround
+
+## Pages
+- / - Main site with product overview and free waste audit
+- /local - Local CTV agencies landing page
+- /cdp - CDP partner integration page
+
+## Contact
+- Email: hello@precise.ai
+- Local agencies: local@precise.ai
+- CDP partners: partners@precise.ai
+
+## Free Audit
+Request a free waste audit at https://precise.ai/#contact
+48 hours. No sales call unless you ask.

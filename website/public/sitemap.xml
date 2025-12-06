@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://website-eta-wine-40.vercel.app/</loc>
-    <lastmod>2025-12-05</lastmod>
+    <loc>https://precise.ai/</loc>
+    <lastmod>2025-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://website-eta-wine-40.vercel.app/local</loc>
-    <lastmod>2025-12-05</lastmod>
+    <loc>https://precise.ai/local</loc>
+    <lastmod>2025-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://website-eta-wine-40.vercel.app/cdp</loc>
-    <lastmod>2025-12-05</lastmod>
+    <loc>https://precise.ai/cdp</loc>
+    <lastmod>2025-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

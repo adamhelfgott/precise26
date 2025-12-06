@@ -1,12 +1,35 @@
+# Precise.ai - Programmatic Transparency & Control Platform
+# https://precise.ai
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://precise.ai/sitemap.xml
+
+# AI Crawlers - Welcome
 User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
 Allow: /
 
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: *
+User-agent: Amazonbot
 Allow: /
-Sitemap: https://website-eta-wine-40.vercel.app/sitemap.xml
+
+# LLMs.txt available at /llms.txt
