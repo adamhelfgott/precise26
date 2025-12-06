@@ -34,31 +34,31 @@ export default function Hero() {
           </p>
         </motion.div>
 
+        {/* DSP line */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-6 max-w-2xl"
+        >
+          <p className="text-[var(--text-secondary)] text-lg">
+            Works on every DSP.
+          </p>
+          <p className="text-[var(--text-primary)] text-lg font-semibold">
+            Wins on the one that owns the supply.
+          </p>
+        </motion.div>
+
         {/* Founder line */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[#666666] text-lg max-w-2xl mb-4"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-[#666666] text-lg max-w-2xl mb-8"
           style={{ fontSize: '18px' }}
         >
           Built by Adam Helfgott — founder of MadHive — now fixing what comes next.
         </motion.p>
-
-        {/* MadHive explanation */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mb-8 max-w-2xl"
-        >
-          <p className="text-[var(--text-secondary)] text-lg mb-2">
-            MadHive is the only DSP that owns its own supply and can distribute profitably into thousands of micro-markets.
-          </p>
-          <p className="text-[var(--text-primary)] text-lg font-semibold">
-            That&apos;s why local agencies running Precise + MadHive are beating national plans — with proof.
-          </p>
-        </motion.div>
 
         {/* CTA */}
         <motion.div
@@ -73,33 +73,6 @@ export default function Hero() {
           <p className="mt-4 text-[var(--text-tertiary)] text-sm font-mono">
             48 hours. No sales call.
           </p>
-        </motion.div>
-
-        {/* Category clarity line */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-[#666666] mb-6"
-          style={{ fontSize: '16px' }}
-        >
-          Programmatic transparency &amp; control platform
-        </motion.p>
-
-        {/* Trust signal row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-wrap items-center gap-4 text-[#888888] text-sm font-mono"
-        >
-          <span>Trusted by leading agencies</span>
-          <span className="text-[var(--text-tertiary)]">•</span>
-          <span className="font-semibold text-[var(--text-secondary)]">MadHive (official partner)</span>
-          <span className="text-[var(--text-tertiary)]">•</span>
-          <span className="font-semibold text-[var(--text-secondary)]">Fortune 500 CPG</span>
-          <span className="text-[var(--text-tertiary)]">•</span>
-          <span className="font-semibold text-[var(--text-secondary)]">Top 5 CTV Agency Group</span>
         </motion.div>
       </div>
 
