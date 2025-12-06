@@ -4,17 +4,16 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { AuditIcon, VetoStamp, KeepStamp } from '@/components/Icons';
-import { LocalTrader, NationalPlan, BudgetArrow, LocalStation, ProofBadge, ComicPanel } from '@/components/LocalIcons';
+import { AuditIcon, VetoStamp, KeepStamp, WaxSeal } from '@/components/Icons';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
 export default function LocalPage() {
   const heroRef = useRef<HTMLElement>(null);
-  const comicRef = useRef<HTMLElement>(null);
+  const storyRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLElement>(null);
   const isHeroInView = useInView(heroRef, { once: true });
-  const isComicInView = useInView(comicRef, { once: true, margin: '-50px' });
+  const isStoryInView = useInView(storyRef, { once: true, margin: '-50px' });
   const isFormInView = useInView(formRef, { once: true, margin: '-50px' });
 
   const [formState, setFormState] = useState<FormState>('idle');
@@ -80,48 +79,22 @@ export default function LocalPage() {
 
               {/* Giant headline */}
               <h1 className="type-display-md mb-6 max-w-4xl crooked-1">
-                Your market just beat the national plan.{' '}
+                Your market can beat the national plan.{' '}
                 <span className="text-[var(--accent)]">With proof.</span>
               </h1>
 
               {/* Sub */}
               <p className="type-body-lg text-[var(--text-secondary)] max-w-2xl mb-8">
-                Local CTV agencies using Precise took{' '}
-                <span className="text-[var(--accent)] font-bold">100%</span> of the 2026 auto budget
-                from the national TTD plan.
+                This already happened with the{' '}
+                <span className="text-[var(--text-primary)] font-bold">Chicago Cubs.</span>
               </p>
 
               {/* Proof stamp */}
               <div className="flex items-center gap-6 mb-8">
                 <span className="stamp stamp-keep inline-block">VERIFIED</span>
                 <span className="type-mono text-[var(--text-tertiary)]">
-                  Q1 2026 • Midwest Auto Group
+                  Chicago Cubs • $10M Sponsorship Campaign
                 </span>
-              </div>
-            </motion.div>
-
-            {/* Hero stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
-            >
-              <div className="p-4 border-[3px] border-[var(--border)] bg-[var(--bg-elevated)]">
-                <span className="type-label text-[var(--text-tertiary)] block mb-1">National TTD</span>
-                <span className="font-mono text-2xl text-[var(--danger)] line-through">$0</span>
-              </div>
-              <div className="p-4 border-[3px] border-[var(--accent)] bg-[var(--accent-muted)]">
-                <span className="type-label text-[var(--accent)] block mb-1">Local Precise</span>
-                <span className="font-mono text-2xl text-[var(--accent)]">$340K</span>
-              </div>
-              <div className="p-4 border-[3px] border-[var(--border)] bg-[var(--bg-elevated)]">
-                <span className="type-label text-[var(--text-tertiary)] block mb-1">ROAS Lift</span>
-                <span className="font-mono text-2xl text-[var(--accent)]">+47%</span>
-              </div>
-              <div className="p-4 border-[3px] border-[var(--border)] bg-[var(--bg-elevated)]">
-                <span className="type-label text-[var(--text-tertiary)] block mb-1">Markets</span>
-                <span className="font-mono text-2xl text-[var(--text-primary)]">12 DMAs</span>
               </div>
             </motion.div>
 
@@ -153,146 +126,134 @@ export default function LocalPage() {
           </motion.div>
         </section>
 
-        {/* 12-Panel Comic Section */}
+        {/* Chicago Cubs Story Section */}
         <section
-          ref={comicRef}
+          ref={storyRef}
           className="section bg-[var(--bg-surface)] border-t-[3px] border-[var(--border)]"
         >
           <div className="max-w-[1200px] mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={isComicInView ? { opacity: 1, y: 0 } : {}}
+              animate={isStoryInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
               className="mb-12"
             >
-              <span className="type-label-accent mb-4 block">THE STORY</span>
+              <span className="type-label-accent mb-4 block">THE REAL STORY</span>
               <h2 className="type-display-sm mb-4">
-                How Local Stole the Budget
+                Chicago Cubs • $10M Sponsorship Campaign
               </h2>
-              <p className="text-[var(--text-secondary)] max-w-lg">
-                A 12-panel tale of data transparency, verifiable proof, and a very nervous national buyer.
+            </motion.div>
+
+            {/* The Setup */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isStoryInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-8 p-6 border-[3px] border-[var(--border)] bg-[var(--bg-elevated)]"
+            >
+              <p className="text-lg text-[var(--text-secondary)] mb-6">
+                Cubs marketing ran a <span className="text-[var(--text-primary)] font-bold">$10M sponsorship campaign.</span>
               </p>
-            </motion.div>
-
-            {/* 12-Panel Grid */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isComicInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-            >
-              <ComicPanel number={1}>
-                <NationalPlan className="w-12 h-12 mx-auto mb-2" />
-                <p className="text-xs text-center text-[var(--text-secondary)]">
-                  National agency lands $340K auto budget. Plans TTD buy.
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={2}>
-                <div className="text-center mb-2">
-                  <span className="font-mono text-2xl text-[var(--danger)]">52</span>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="p-4 border-l-[3px] border-[var(--danger)]">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="font-mono font-bold text-[var(--danger)]">National TTD Plan</span>
+                    <span className="font-mono text-xl text-[var(--danger)]">$8M</span>
+                  </div>
+                  <p className="text-sm text-[var(--text-secondary)]">
+                    52 segments, most auto-appended by Koa
+                  </p>
                 </div>
-                <p className="text-xs text-center text-[var(--text-secondary)]">
-                  TTD appends 52 segments. Client asked for 4.
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={3}>
-                <LocalStation className="w-12 h-12 mx-auto mb-2" />
-                <p className="text-xs text-center text-[var(--text-secondary)]">
-                  Local agency hears about the buy. Smells opportunity.
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={4}>
-                <AuditIcon className="w-10 h-10 mx-auto mb-2" />
-                <p className="text-xs text-center text-[var(--text-secondary)]">
-                  Local runs free Precise audit. Finds $14K/mo waste.
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={5}>
-                <VetoStamp className="w-16 h-8 mx-auto mb-2" />
-                <p className="text-xs text-center text-[var(--text-secondary)]">
-                  39 segments vetoed. Zero incremental lift proven.
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={6}>
-                <ProofBadge className="w-12 h-12 mx-auto mb-2" />
-                <p className="text-xs text-center text-[var(--text-secondary)]">
-                  Cryptographic proof generated. Can&apos;t be disputed.
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={7}>
-                <div className="text-center">
-                  <span className="font-mono text-lg text-[var(--accent)]">+47%</span>
-                  <span className="block text-xs text-[var(--text-secondary)]">ROAS</span>
-                </div>
-                <p className="text-xs text-center text-[var(--text-secondary)] mt-2">
-                  Local plan projects 47% better ROAS. Math, not promises.
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={8}>
-                <LocalTrader className="w-12 h-12 mx-auto mb-2" />
-                <p className="text-xs text-center text-[var(--text-secondary)]">
-                  Local pitches CMO directly. Shows the proof.
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={9}>
-                <div className="text-center mb-2">
-                  <span className="text-2xl">🤔</span>
-                </div>
-                <p className="text-xs text-center text-[var(--text-secondary)]">
-                  CMO asks national: &quot;Why are we paying for 52 segments?&quot;
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={10}>
-                <div className="text-center mb-2">
-                  <span className="text-2xl">😰</span>
-                </div>
-                <p className="text-xs text-center text-[var(--text-secondary)]">
-                  National can&apos;t explain. No proof. Just &quot;trust us.&quot;
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={11}>
-                <BudgetArrow className="w-full h-8 mx-auto mb-2" />
-                <p className="text-xs text-center text-[var(--text-secondary)]">
-                  Budget moves to local. 100% of $340K.
-                </p>
-              </ComicPanel>
-
-              <ComicPanel number={12} className="border-[var(--accent)] bg-[var(--accent-muted)]">
-                <KeepStamp className="w-16 h-8 mx-auto mb-2" />
-                <p className="text-xs text-center text-[var(--text-primary)] font-semibold">
-                  Local wins. Proof wins. You could be next.
-                </p>
-              </ComicPanel>
-            </motion.div>
-
-            {/* Moral */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isComicInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 p-8 border-[3px] border-[var(--border)]"
-            >
-              <div className="flex items-start gap-6">
-                <ProofBadge className="w-16 h-16 flex-shrink-0 hidden md:block" />
-                <div>
-                  <h3 className="type-display-sm mb-3">The moral?</h3>
-                  <p className="text-[var(--text-secondary)] text-lg">
-                    National agencies rely on &quot;trust us&quot; reporting. Local agencies with Precise
-                    have <span className="text-[var(--accent)] font-semibold">verifiable proof</span> that
-                    holds up in the CMO&apos;s office. When performance is provable, budgets move.
+                <div className="p-4 border-l-[3px] border-[var(--accent)]">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="font-mono font-bold text-[var(--accent)]">Local CTV</span>
+                    <span className="font-mono text-xl text-[var(--accent)]">$2M</span>
+                  </div>
+                  <p className="text-sm text-[var(--text-secondary)]">
+                    Through MadHive
                   </p>
                 </div>
               </div>
+            </motion.div>
+
+            {/* What Precise + MadHive Did */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isStoryInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-8 p-6 border-[3px] border-[var(--accent)] bg-[var(--accent-muted)]"
+            >
+              <h3 className="font-mono font-bold text-[var(--accent)] mb-6">
+                Precise + MadHive ran the local flight:
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <VetoStamp className="w-16 h-8 flex-shrink-0" />
+                  <p className="text-[var(--text-primary)]">
+                    Vetoed <span className="font-bold">39 low-lift segments</span> → saved <span className="font-mono font-bold text-[var(--accent)]">$720K</span>
+                  </p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <KeepStamp className="w-16 h-8 flex-shrink-0" />
+                  <p className="text-[var(--text-primary)]">
+                    Kept <span className="font-bold">13 proven segments</span> (Valence-signed)
+                  </p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <WaxSeal className="w-8 h-8 flex-shrink-0" />
+                  <p className="text-[var(--text-primary)]">
+                    Split into <span className="font-bold">220 DMAs</span>
+                  </p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-2xl text-[var(--accent)] w-8 text-center">↑</span>
+                  <p className="text-[var(--text-primary)]">
+                    ROAS <span className="font-mono font-bold text-[var(--accent)]">1.6×</span> vs national <span className="font-mono text-[var(--danger)]">1.1×</span>
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* The Result */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isStoryInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-8 p-6 border-[3px] border-[var(--border)] bg-[var(--bg-elevated)]"
+            >
+              <p className="text-lg text-[var(--text-secondary)] mb-4">
+                Cubs leadership saw the <span className="text-[var(--accent)] font-bold">one-slide Valence receipt.</span>
+              </p>
+              <div className="p-6 bg-[var(--bg-surface)] border-[3px] border-[var(--accent)]">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <span className="type-label text-[var(--danger)] block mb-1">National TTD Budget</span>
+                    <span className="font-mono text-3xl font-bold text-[var(--danger)]">-60%</span>
+                  </div>
+                  <div>
+                    <span className="type-label text-[var(--accent)] block mb-1">Local Budget</span>
+                    <span className="font-mono text-3xl font-bold text-[var(--accent)]">2×</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* The Moral */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isStoryInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="p-8 border-l-[6px] border-[var(--accent)]"
+            >
+              <p className="text-xl text-[var(--text-primary)] font-bold mb-4">
+                Local didn&apos;t just save money.
+              </p>
+              <p className="text-xl text-[var(--text-primary)] font-bold mb-6">
+                Local took the national budget — <span className="text-[var(--accent)]">with proof.</span>
+              </p>
+              <p className="text-lg text-[var(--text-secondary)]">
+                Your market can do the same.
+              </p>
             </motion.div>
           </div>
         </section>
@@ -361,11 +322,12 @@ export default function LocalPage() {
                       />
                     </div>
                     <div>
-                      <label className="type-label block mb-2">Campaign / DMA *</label>
+                      <label className="type-label block mb-2">
+                        Campaign ID or Name <span className="text-[var(--text-tertiary)]">(optional)</span>
+                      </label>
                       <input
                         type="text"
-                        required
-                        placeholder="Detroit_Auto_Q1"
+                        placeholder="e.g. 2025_Q4_Nissan or just leave blank"
                         value={formData.campaign_id}
                         onChange={(e) => setFormData({ ...formData, campaign_id: e.target.value })}
                         className="input-field"

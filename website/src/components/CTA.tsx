@@ -112,11 +112,10 @@ export default function CTA() {
 
                 {/* Campaign ID */}
                 <div>
-                  <label className="type-label block mb-2">Campaign ID / Name *</label>
+                  <label className="type-label block mb-2">Campaign ID or Name <span className="text-[var(--text-tertiary)]">(optional)</span></label>
                   <input
                     type="text"
-                    required
-                    placeholder="Q4_Auto_Regional"
+                    placeholder="e.g. 2025_Q4_Nissan or just leave blank"
                     value={formData.campaign_id}
                     onChange={(e) => setFormData({ ...formData, campaign_id: e.target.value })}
                     className="input-field"

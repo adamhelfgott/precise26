@@ -74,7 +74,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mb-6"
+          className="mb-8"
         >
           <a href="#contact" className="btn-primary text-lg py-5 px-10">
             → Free Waste Audit
@@ -82,6 +82,33 @@ export default function Hero() {
           <p className="mt-4 text-[var(--text-tertiary)] text-sm font-mono">
             48 hours. No sales call.
           </p>
+        </motion.div>
+
+        {/* Category clarity line */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-[#666666] mb-6"
+          style={{ fontSize: '16px' }}
+        >
+          Programmatic transparency &amp; control platform
+        </motion.p>
+
+        {/* Trust signal row */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="flex flex-wrap items-center gap-4 text-[#888888] text-sm font-mono"
+        >
+          <span>Trusted by leading agencies</span>
+          <span className="text-[var(--text-tertiary)]">•</span>
+          <span className="font-semibold text-[var(--text-secondary)]">MadHive</span>
+          <span className="text-[var(--text-tertiary)]">•</span>
+          <span className="font-semibold text-[var(--text-secondary)]">Chicago Cubs</span>
+          <span className="text-[var(--text-tertiary)]">•</span>
+          <span className="font-semibold text-[var(--text-secondary)]">Fortune 500 CPG</span>
         </motion.div>
       </div>
 
