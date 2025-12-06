@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { AuditIcon, VetoStamp, KeepStamp, WaxSeal } from '@/components/Icons';
+import ContributionBarChart from '@/components/ContributionBarChart';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -77,11 +78,9 @@ export default function LocalPage() {
               <span className="type-label-accent mb-6 block">LOCAL CTV AGENCIES</span>
 
               {/* Giant headline */}
-              <h1 className="type-display-md mb-4 max-w-4xl crooked-1">
-                Your market doesn&apos;t just compete with national.
-              </h1>
-              <h1 className="type-display-md mb-8 max-w-4xl">
-                It <span className="text-[var(--accent)]">beats national.</span> With proof.
+              <h1 className="type-display-md mb-8 max-w-4xl crooked-1">
+                Your market can beat the national plan.{' '}
+                <span className="text-[var(--accent)]">With proof.</span>
               </h1>
             </motion.div>
           </div>
@@ -107,15 +106,15 @@ export default function LocalPage() {
                 <ul className="space-y-3 text-lg text-[var(--text-secondary)]">
                   <li className="flex items-start gap-3">
                     <span className="text-[var(--danger)] font-mono">•</span>
-                    <span>40–70 segments, most auto-appended</span>
+                    <span>40–70 segments (most auto-appended)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-[var(--danger)] font-mono">•</span>
-                    <span>Same creative and targeting in New York and rural Ohio</span>
+                    <span>Same targeting from New York to rural Ohio</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-[var(--danger)] font-mono">•</span>
-                    <span><span className="text-[var(--danger)] font-bold">&quot;trust us&quot;</span> reporting</span>
+                    <span><span className="text-[var(--danger)] font-bold">&quot;Trust us&quot;</span> reporting</span>
                   </li>
                 </ul>
               </div>
@@ -137,7 +136,7 @@ export default function LocalPage() {
                   <div className="flex items-start gap-4">
                     <span className="text-[var(--accent)] font-mono font-bold text-xl">→</span>
                     <p className="text-[var(--text-primary)] text-lg">
-                      We split every campaign into <span className="font-bold">thousands of micro-markets by ZIP code and micro-demographic cohorts</span> (down to the neighborhood level)
+                      We split every campaign into <span className="font-bold">thousands of micro-markets by ZIP code and micro-demographic cohorts</span>
                     </p>
                   </div>
                   <div className="flex items-start gap-4">
@@ -147,21 +146,21 @@ export default function LocalPage() {
                     </p>
                   </div>
                   <div className="flex items-start gap-4">
+                    <span className="text-[var(--accent)] font-mono font-bold text-xl">→</span>
+                    <p className="text-[var(--text-primary)] text-lg">
+                      <span className="font-mono text-[var(--accent)]">Average 35–47% of data waste eliminated</span> across live campaigns
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-4">
                     <KeepStamp className="w-16 h-8 flex-shrink-0" />
                     <p className="text-[var(--text-primary)] text-lg">
-                      Only the highest-lift segments survive — <span className="font-mono text-[var(--accent)]">average 35–47% of data waste eliminated</span>
+                      Only proven segments remain — each Valence-signed with its real-world lift
                     </p>
                   </div>
                   <div className="flex items-start gap-4">
                     <WaxSeal className="w-8 h-8 flex-shrink-0" />
                     <p className="text-[var(--text-primary)] text-lg">
-                      Every kept segment is Valence-signed with its actual contribution
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <span className="text-[var(--accent)] font-mono font-bold text-xl">◆</span>
-                    <p className="text-[var(--text-primary)] text-lg">
-                      <span className="font-bold">MadHive</span> — the best local CTV DSP in America — distributes perfectly into these micro-markets at scale
+                      <span className="font-bold">MadHive</span> — the only DSP that can profitably distribute into thousands of micro-markets — executes perfectly
                     </p>
                   </div>
                 </div>
@@ -177,12 +176,20 @@ export default function LocalPage() {
             >
               <h3 className="type-label-accent mb-6">Result in live local campaigns:</h3>
               <div className="p-6 border-[3px] border-[var(--accent)] bg-[var(--bg-elevated)]">
-                <p className="text-xl text-[var(--text-primary)] mb-4">
-                  Local consistently outperforms national plans by <span className="font-bold text-[var(--accent)]">double-digit ROAS percentages.</span>
-                </p>
-                <p className="text-lg text-[var(--text-secondary)]">
-                  One-slide Valence receipt proves it.
-                </p>
+                <ul className="space-y-3 text-lg">
+                  <li className="flex items-start gap-3">
+                    <span className="text-[var(--accent)] font-mono">•</span>
+                    <span className="text-[var(--text-primary)]">
+                      Local consistently outperforms national by <span className="font-bold text-[var(--accent)]">double-digit ROAS percentages</span>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[var(--accent)] font-mono">•</span>
+                    <span className="text-[var(--text-primary)]">
+                      One-slide Valence receipt proves it
+                    </span>
+                  </li>
+                </ul>
               </div>
             </motion.div>
 
@@ -194,7 +201,7 @@ export default function LocalPage() {
               className="p-8 border-[3px] border-[var(--border)] bg-[var(--bg-elevated)]"
             >
               <p className="text-xl text-[var(--text-primary)] font-bold mb-6">
-                That receipt is how local teams are pulling budget away from national desks — right now.
+                That receipt is how local teams are pulling budget from national desks — right now.
               </p>
               <p className="text-lg text-[var(--text-secondary)] mb-2">
                 Run your free local audit.
@@ -205,6 +212,9 @@ export default function LocalPage() {
             </motion.div>
           </div>
         </section>
+
+        {/* Contribution Bar Chart */}
+        <ContributionBarChart />
 
         {/* Audit Form Section */}
         <section

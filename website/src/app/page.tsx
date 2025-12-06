@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import Problem from '@/components/Problem';
 import Scenario from '@/components/Scenario';
 import ContributionAnalysis from '@/components/ContributionAnalysis';
+import ContributionBarChart from '@/components/ContributionBarChart';
 import PathFinder from '@/components/PathFinder';
 import Products from '@/components/Products';
 import Partners from '@/components/Partners';
@@ -18,6 +19,7 @@ export default function Home() {
         <Problem />
         <Scenario />
         <ContributionAnalysis />
+        <ContributionBarChart />
         <PathFinder />
         <Products />
         <Partners />
