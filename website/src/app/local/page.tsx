@@ -77,15 +77,12 @@ export default function LocalPage() {
               <span className="type-label-accent mb-6 block">LOCAL CTV AGENCIES</span>
 
               {/* Giant headline */}
-              <h1 className="type-display-md mb-6 max-w-4xl crooked-1">
-                Your market can beat the national plan.{' '}
-                <span className="text-[var(--accent)]">With proof.</span>
+              <h1 className="type-display-md mb-4 max-w-4xl crooked-1">
+                Your market doesn&apos;t just compete with national.
               </h1>
-
-              {/* Sub */}
-              <p className="type-body-lg text-[var(--text-secondary)] max-w-2xl mb-8">
-                This is already happening in real local CTV campaigns.
-              </p>
+              <h1 className="type-display-md mb-8 max-w-4xl">
+                It <span className="text-[var(--accent)]">beats national.</span> With proof.
+              </h1>
             </motion.div>
           </div>
         </section>
@@ -96,60 +93,77 @@ export default function LocalPage() {
           className="section bg-[var(--bg-surface)] border-t-[3px] border-[var(--border)]"
         >
           <div className="max-w-[1000px] mx-auto">
-            {/* The Problem */}
+            {/* National Problem */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isStoryInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
               className="mb-12"
             >
-              <p className="text-xl text-[var(--text-secondary)] mb-8">
-                National plans run dozens of segments — many auto-appended, many low-lift, many impossible to justify to the client.
+              <p className="text-xl text-[var(--text-secondary)] mb-6">
+                National plans paint with a broad brush:
               </p>
-
-              <p className="text-xl text-[var(--text-primary)] font-semibold mb-8">
-                Local agencies running Precise + MadHive do it differently:
-              </p>
+              <div className="p-6 border-l-[6px] border-[var(--danger)] bg-[var(--bg-elevated)]">
+                <ul className="space-y-3 text-lg text-[var(--text-secondary)]">
+                  <li className="flex items-start gap-3">
+                    <span className="text-[var(--danger)] font-mono">•</span>
+                    <span>40–70 segments, most auto-appended</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[var(--danger)] font-mono">•</span>
+                    <span>Same creative and targeting in New York and rural Ohio</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[var(--danger)] font-mono">•</span>
+                    <span><span className="text-[var(--danger)] font-bold">&quot;trust us&quot;</span> reporting</span>
+                  </li>
+                </ul>
+              </div>
             </motion.div>
 
-            {/* The Process */}
+            {/* Local Solution */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isStoryInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-12 p-8 border-[3px] border-[var(--accent)] bg-[var(--accent-muted)]"
+              className="mb-12"
             >
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <span className="text-[var(--accent)] font-mono font-bold text-xl">→</span>
-                  <p className="text-[var(--text-primary)] text-lg">
-                    Every segment is scored for actual contribution before the buy
-                  </p>
-                </div>
-                <div className="flex items-start gap-4">
-                  <VetoStamp className="w-16 h-8 flex-shrink-0" />
-                  <p className="text-[var(--text-primary)] text-lg">
-                    Low-lift and redundant segments are vetoed in real time{' '}
-                    <span className="text-[var(--accent)] font-mono">(average 35–47% of data spend eliminated in live flights)</span>
-                  </p>
-                </div>
-                <div className="flex items-start gap-4">
-                  <KeepStamp className="w-16 h-8 flex-shrink-0" />
-                  <p className="text-[var(--text-primary)] text-lg">
-                    Only proven segments stay — each one Valence-signed with its real-world lift
-                  </p>
-                </div>
-                <div className="flex items-start gap-4">
-                  <WaxSeal className="w-8 h-8 flex-shrink-0" />
-                  <p className="text-[var(--text-primary)] text-lg">
-                    Audience is split hyper-locally <span className="font-mono text-[var(--accent)]">(200+ DMAs)</span> for maximum relevance
-                  </p>
-                </div>
-                <div className="flex items-start gap-4">
-                  <span className="text-[var(--accent)] font-mono font-bold text-xl">$</span>
-                  <p className="text-[var(--text-primary)] text-lg">
-                    Budget is routed to the highest-performing inventory paths
-                  </p>
+              <p className="text-xl text-[var(--text-primary)] font-semibold mb-6">
+                Local agencies running Precise + MadHive do the opposite:
+              </p>
+
+              <div className="p-8 border-[3px] border-[var(--accent)] bg-[var(--accent-muted)]">
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <span className="text-[var(--accent)] font-mono font-bold text-xl">→</span>
+                    <p className="text-[var(--text-primary)] text-lg">
+                      We split every campaign into <span className="font-bold">thousands of micro-markets by ZIP code and micro-demographic cohorts</span> (down to the neighborhood level)
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <VetoStamp className="w-16 h-8 flex-shrink-0" />
+                    <p className="text-[var(--text-primary)] text-lg">
+                      Every micro-market gets its own segment veto and budget allocation in real time
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <KeepStamp className="w-16 h-8 flex-shrink-0" />
+                    <p className="text-[var(--text-primary)] text-lg">
+                      Only the highest-lift segments survive — <span className="font-mono text-[var(--accent)]">average 35–47% of data waste eliminated</span>
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <WaxSeal className="w-8 h-8 flex-shrink-0" />
+                    <p className="text-[var(--text-primary)] text-lg">
+                      Every kept segment is Valence-signed with its actual contribution
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span className="text-[var(--accent)] font-mono font-bold text-xl">◆</span>
+                    <p className="text-[var(--text-primary)] text-lg">
+                      <span className="font-bold">MadHive</span> — the best local CTV DSP in America — distributes perfectly into these micro-markets at scale
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -161,47 +175,14 @@ export default function LocalPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-12"
             >
-              <h3 className="type-label-accent mb-6">Result in real campaigns:</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="p-6 border-[3px] border-[var(--accent)] bg-[var(--bg-elevated)]">
-                  <span className="font-mono text-3xl font-bold text-[var(--accent)]">2×</span>
-                  <p className="text-[var(--text-secondary)] mt-2">
-                    Local ROAS consistently outperforms national by double-digit percentages
-                  </p>
-                </div>
-                <div className="p-6 border-[3px] border-[var(--accent)] bg-[var(--bg-elevated)]">
-                  <span className="font-mono text-3xl font-bold text-[var(--accent)]">35–47%</span>
-                  <p className="text-[var(--text-secondary)] mt-2">
-                    Waste reduced
-                  </p>
-                </div>
-                <div className="p-6 border-[3px] border-[var(--accent)] bg-[var(--bg-elevated)]">
-                  <span className="font-mono text-3xl font-bold text-[var(--accent)]">1 slide</span>
-                  <p className="text-[var(--text-secondary)] mt-2">
-                    Valence proof that holds up in any client review
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* The Moral */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isStoryInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-12"
-            >
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="p-6 border-l-[6px] border-[var(--danger)]">
-                  <p className="text-xl text-[var(--text-secondary)]">
-                    National plans rely on <span className="text-[var(--danger)] font-bold">&quot;trust us.&quot;</span>
-                  </p>
-                </div>
-                <div className="p-6 border-l-[6px] border-[var(--accent)]">
-                  <p className="text-xl text-[var(--text-primary)]">
-                    Local plans with Precise <span className="text-[var(--accent)] font-bold">bring the receipt.</span>
-                  </p>
-                </div>
+              <h3 className="type-label-accent mb-6">Result in live local campaigns:</h3>
+              <div className="p-6 border-[3px] border-[var(--accent)] bg-[var(--bg-elevated)]">
+                <p className="text-xl text-[var(--text-primary)] mb-4">
+                  Local consistently outperforms national plans by <span className="font-bold text-[var(--accent)]">double-digit ROAS percentages.</span>
+                </p>
+                <p className="text-lg text-[var(--text-secondary)]">
+                  One-slide Valence receipt proves it.
+                </p>
               </div>
             </motion.div>
 
@@ -209,14 +190,17 @@ export default function LocalPage() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={isStoryInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               className="p-8 border-[3px] border-[var(--border)] bg-[var(--bg-elevated)]"
             >
-              <p className="text-xl text-[var(--text-primary)] font-bold mb-4">
-                That receipt is how local teams are taking budget from national desks — right now.
+              <p className="text-xl text-[var(--text-primary)] font-bold mb-6">
+                That receipt is how local teams are pulling budget away from national desks — right now.
+              </p>
+              <p className="text-lg text-[var(--text-secondary)] mb-2">
+                Run your free local audit.
               </p>
               <p className="text-lg text-[var(--text-secondary)]">
-                Run your free local audit. See your own numbers in 48 hours.
+                See your own micro-market numbers in 48 hours.
               </p>
             </motion.div>
           </div>
@@ -245,7 +229,7 @@ export default function LocalPage() {
                     Run Your Free Local Audit
                   </h2>
                   <p className="text-[var(--text-secondary)] text-lg max-w-lg">
-                    See your own numbers in 48 hours. No sales call unless you ask.
+                    See your own micro-market numbers in 48 hours. No sales call unless you ask.
                   </p>
                 </div>
               </div>
